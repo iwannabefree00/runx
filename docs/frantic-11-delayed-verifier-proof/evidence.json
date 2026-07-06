@@ -5,7 +5,7 @@
   "claim_id": "b2c8d1e9-549e-4282-95b2-70d87760885b",
   "claim_ref": "frantic:claim:b2c8d1e9-549e-4282-95b2-70d87760885b",
   "agent_kid": "agent-497c05",
-  "summary": "Initial delivery for Frantic bounty #11 starts a real platform delayed public_url_live verifier sequence with blocks_acceptance=true; final evidence will be updated only after the platform delayed recheck actually runs.",
+  "summary": "Initial delivery for Frantic bounty #11 has produced a real Frantic verifier run with 5/5 immediate checks passed and the delayed public_url_live gate still pending for the scheduled post-window recheck.",
   "public_url": "https://raw.githubusercontent.com/iwannabefree00/runx/frantic-11-delayed-verifier-proof/docs/frantic-11-delayed-verifier-proof/artifact.md",
   "contract_used": {
     "profile": "published_artifact_v1",
@@ -85,15 +85,70 @@
       "claim_ref": "frantic:claim:b2c8d1e9-549e-4282-95b2-70d87760885b"
     },
     "initial_delivery_state": {
-      "status": "ready_to_submit",
-      "note": "This delivery is intended to start the real verifier run and the delayed public_url_live recheck; immediate-pass records are collected from Frantic after delivery."
+      "status": "delivered",
+      "delivered_at": "2026-07-06T17:28:53.409Z",
+      "delivery_ref": "frantic:delivery:759f075f-19cf-409d-9abe-26b73049c92c",
+      "delivery_receipt_ref": "frantic:delivery:759f075f-19cf-409d-9abe-26b73049c92c",
+      "note": "This delivery started the real Frantic verifier run. Immediate inline checks have passed; the delayed public_url_live check remains pending/ready for the post-window scheduler."
+    },
+    "immediate_pass_record": {
+      "source": "Frantic agent status after delivery",
+      "verifier_run_ref": "verifier-run:b2c8d1e9-549e-4282-95b2-70d87760885b:3782",
+      "started_at": "2026-07-06T17:29:40.373Z",
+      "completed_at": "2026-07-06T17:29:40.781Z",
+      "summary": "Machine checks passed: 5/5. Review pending with human or llm.",
+      "checks": [
+        {
+          "check_id": "report_depth",
+          "uses": "markdown.min_bullets",
+          "status": "passed",
+          "updated_at": "2026-07-06T17:29:38.933Z",
+          "summary": "Markdown has 27 bullet items."
+        },
+        {
+          "check_id": "evidence_json_valid",
+          "uses": "json.valid",
+          "status": "passed",
+          "updated_at": "2026-07-06T17:29:38.933Z",
+          "summary": "JSON parses successfully."
+        },
+        {
+          "check_id": "evidence_items",
+          "uses": "json.path_min_items",
+          "status": "passed",
+          "updated_at": "2026-07-06T17:29:38.933Z",
+          "summary": "JSON array 'observations' has 6 item(s)."
+        },
+        {
+          "check_id": "public_url_admitted",
+          "uses": "url.public_surface",
+          "status": "passed",
+          "updated_at": "2026-07-06T17:29:38.933Z",
+          "summary": "URL admitted as public surface: raw.githubusercontent.com"
+        },
+        {
+          "check_id": "artifact_summary",
+          "uses": "json.path_min_string_length",
+          "status": "passed",
+          "updated_at": "2026-07-06T17:29:38.933Z",
+          "summary": "JSON string 'summary' has 219 character(s)."
+        }
+      ],
+      "delayed_check_current_state": {
+        "check_id": "public_url_live",
+        "uses": "url.live",
+        "status": "ready",
+        "updated_at": "2026-07-06T17:28:53.530Z",
+        "expected_not_before": "2026-07-07T17:21:33.884Z",
+        "blocks_acceptance": true
+      }
     },
     "scheduled_waiting_state": {
-      "status": "waiting_for_delivery_then_delayed_recheck",
+      "status": "inline_checks_passed_delayed_recheck_pending",
       "delayed_check_id": "public_url_live",
       "not_before": "2026-07-07T17:21:33.884Z",
       "blocks_acceptance": true,
-      "source": "Frantic claim response verification.checks"
+      "source": "Frantic claim response verification.checks plus Frantic post-delivery verifier status"
     },
     "post_window_recheck_result": null,
     "final_receipt_ref": null
@@ -103,8 +158,9 @@
     "The bounty contract used by Frantic includes check_schedules.public_url_live.schedule.run=delayed and not_before_seconds=86400.",
     "The same contract marks check_schedules.public_url_live.blocks_acceptance=true, so acceptance should wait for the delayed recheck.",
     "The claim response scheduled inline checks at 2026-07-06T17:21:33.884Z and the delayed public_url_live async check at 2026-07-07T17:21:33.884Z.",
-    "This initial evidence does not fabricate the post-window result; post_window_recheck_result and final_receipt_ref remain null until Frantic emits the real delayed verifier result.",
-    "A follow-up evidence revision will copy Frantic's actual verifier run timestamps/statuses and final receipt reference after the delayed check has fired."
+    "The real immediate-pass record is verifier-run:b2c8d1e9-549e-4282-95b2-70d87760885b:3782, completed at 2026-07-06T17:29:40.781Z with 5/5 machine checks passed.",
+    "The delayed public_url_live check is still pending/ready and must not be represented as passed until Frantic runs it after the scheduled window.",
+    "A follow-up evidence revision will copy Frantic's actual delayed recheck timestamp/status and final receipt reference after the delayed check has fired."
   ],
   "anti_fabrication_note": "This packet intentionally distinguishes the real claim-time schedule from the future post-window result. It should not be accepted as final until Frantic's delayed public_url_live recheck has actually executed."
 }
