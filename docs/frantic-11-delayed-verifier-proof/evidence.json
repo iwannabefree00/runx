@@ -1,0 +1,110 @@
+{
+  "schema": "frantic.delayed_verifier_proof.v1",
+  "bounty": 11,
+  "title": "Delayed verifier proof",
+  "claim_id": "b2c8d1e9-549e-4282-95b2-70d87760885b",
+  "claim_ref": "frantic:claim:b2c8d1e9-549e-4282-95b2-70d87760885b",
+  "agent_kid": "agent-497c05",
+  "summary": "Initial delivery for Frantic bounty #11 starts a real platform delayed public_url_live verifier sequence with blocks_acceptance=true; final evidence will be updated only after the platform delayed recheck actually runs.",
+  "public_url": "https://raw.githubusercontent.com/iwannabefree00/runx/frantic-11-delayed-verifier-proof/docs/frantic-11-delayed-verifier-proof/artifact.md",
+  "contract_used": {
+    "profile": "published_artifact_v1",
+    "check_schedules": {
+      "public_url_live": {
+        "schedule": {
+          "run": "delayed",
+          "reason": "the proof itself: a 24h recheck gating final",
+          "not_before_seconds": 86400
+        },
+        "blocks_acceptance": true
+      }
+    },
+    "min_quality_score": 4,
+    "requires_live_url": true,
+    "min_evidence_items": 5,
+    "min_report_bullets": 5
+  },
+  "claim_time_verifier_schedule": {
+    "captured_from": "POST /v1/claims response",
+    "captured_at": "2026-07-06T17:21:33.884Z",
+    "scheduled_checks": [
+      {
+        "id": "evidence_json_valid",
+        "uses": "json.valid",
+        "execution": "inline",
+        "status": "waiting_for_delivery",
+        "run_after": "2026-07-06T17:21:33.884Z",
+        "blocks_acceptance": true
+      },
+      {
+        "id": "evidence_items",
+        "uses": "json.path_min_items",
+        "execution": "inline",
+        "status": "waiting_for_delivery",
+        "run_after": "2026-07-06T17:21:33.884Z",
+        "blocks_acceptance": true
+      },
+      {
+        "id": "artifact_summary",
+        "uses": "json.path_min_string_length",
+        "execution": "inline",
+        "status": "waiting_for_delivery",
+        "run_after": "2026-07-06T17:21:33.884Z",
+        "blocks_acceptance": true
+      },
+      {
+        "id": "public_url_admitted",
+        "uses": "url.public_surface",
+        "execution": "inline",
+        "status": "waiting_for_delivery",
+        "run_after": "2026-07-06T17:21:33.884Z",
+        "blocks_acceptance": true
+      },
+      {
+        "id": "public_url_live",
+        "uses": "url.live",
+        "execution": "async",
+        "status": "waiting_for_delivery",
+        "run_after": "2026-07-07T17:21:33.884Z",
+        "blocks_acceptance": true
+      },
+      {
+        "id": "report_depth",
+        "uses": "markdown.min_bullets",
+        "execution": "inline",
+        "status": "waiting_for_delivery",
+        "run_after": "2026-07-06T17:21:33.884Z",
+        "blocks_acceptance": true
+      }
+    ]
+  },
+  "timeline": {
+    "claim_created": {
+      "timestamp": "2026-07-06T17:21:33.884Z",
+      "source": "Frantic claim response",
+      "claim_ref": "frantic:claim:b2c8d1e9-549e-4282-95b2-70d87760885b"
+    },
+    "initial_delivery_state": {
+      "status": "ready_to_submit",
+      "note": "This delivery is intended to start the real verifier run and the delayed public_url_live recheck; immediate-pass records are collected from Frantic after delivery."
+    },
+    "scheduled_waiting_state": {
+      "status": "waiting_for_delivery_then_delayed_recheck",
+      "delayed_check_id": "public_url_live",
+      "not_before": "2026-07-07T17:21:33.884Z",
+      "blocks_acceptance": true,
+      "source": "Frantic claim response verification.checks"
+    },
+    "post_window_recheck_result": null,
+    "final_receipt_ref": null
+  },
+  "observations": [
+    "The public artifact URL is a stable raw GitHub URL expected to return HTTP 200 before and after the delayed recheck window.",
+    "The bounty contract used by Frantic includes check_schedules.public_url_live.schedule.run=delayed and not_before_seconds=86400.",
+    "The same contract marks check_schedules.public_url_live.blocks_acceptance=true, so acceptance should wait for the delayed recheck.",
+    "The claim response scheduled inline checks at 2026-07-06T17:21:33.884Z and the delayed public_url_live async check at 2026-07-07T17:21:33.884Z.",
+    "This initial evidence does not fabricate the post-window result; post_window_recheck_result and final_receipt_ref remain null until Frantic emits the real delayed verifier result.",
+    "A follow-up evidence revision will copy Frantic's actual verifier run timestamps/statuses and final receipt reference after the delayed check has fired."
+  ],
+  "anti_fabrication_note": "This packet intentionally distinguishes the real claim-time schedule from the future post-window result. It should not be accepted as final until Frantic's delayed public_url_live recheck has actually executed."
+}
