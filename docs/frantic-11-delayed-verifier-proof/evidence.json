@@ -112,8 +112,11 @@
       "anti_fabrication": "This field must remain not_yet_available until Frantic's delayed url.live check actually executes."
     },
     "final_receipt_ref": {
-      "status": "pending_delivery_receipt",
-      "note": "This same branch URL will be updated with the actual Frantic delivery receipt after delivery, and with the delayed recheck result after it exists."
+      "status": "delivery_receipt_available_delayed_recheck_pending",
+      "delivery_id": "35e2fa45-3d4a-4c03-833c-9cbd95407e78",
+      "delivery_ref": "frantic:delivery:35e2fa45-3d4a-4c03-833c-9cbd95407e78",
+      "receipt_ref": "frantic:delivery:35e2fa45-3d4a-4c03-833c-9cbd95407e78",
+      "note": "The delivery receipt exists. The final delayed public_url_live recheck result is still pending until Frantic runs the scheduled async check."
     }
   },
   "observations": [

@@ -8,6 +8,7 @@ The important constraint is awkward but real: the claim fuse is two hours, while
 - Claim id: `cf4934f1-d4a7-4b9d-a630-0e02db333b8d`.
 - Claim ref: `frantic:claim:cf4934f1-d4a7-4b9d-a630-0e02db333b8d`.
 - Claim receipt code: `r/dc9ce97c`.
+- Delivery ref: `frantic:delivery:35e2fa45-3d4a-4c03-833c-9cbd95407e78`.
 - Public artifact: `https://raw.githubusercontent.com/iwannabefree00/runx/frantic-11-delayed-verifier-proof/docs/frantic-11-delayed-verifier-proof/artifact.md`.
 - Evidence JSON: `https://raw.githubusercontent.com/iwannabefree00/runx/frantic-11-delayed-verifier-proof/docs/frantic-11-delayed-verifier-proof/evidence.json`.
 - This report: `https://raw.githubusercontent.com/iwannabefree00/runx/frantic-11-delayed-verifier-proof/docs/frantic-11-delayed-verifier-proof/report.md`.
@@ -45,7 +46,8 @@ Captured from the current claim response:
 - Immediate-pass record: expected to be produced by Frantic after this delivery; it will be appended from real agent status only.
 - Scheduled waiting state: evidence JSON records the current claim schedule and not-before timestamp.
 - Post-window recheck result: pending until after `2026-07-08T05:16:19.711Z`.
-- Final receipt ref: pending until Frantic emits the actual delivery/check result.
+- Delivery receipt ref: `frantic:delivery:35e2fa45-3d4a-4c03-833c-9cbd95407e78`.
+- Final delayed-check result: pending until Frantic runs `public_url_live` after `2026-07-08T05:16:19.711Z`.
 
 ## Review note
 
@@ -54,8 +56,8 @@ Please do not treat this packet as asserting final success before the delayed ma
 ## Follow-up plan
 
 - Deliver this branch URL before the two-hour claim fuse.
-- Capture the real Frantic delivery receipt.
-- Update this same branch evidence/report with the delivery receipt.
+- Captured the real Frantic delivery receipt: `frantic:delivery:35e2fa45-3d4a-4c03-833c-9cbd95407e78`.
+- Updated this same branch evidence/report with the delivery receipt.
 - Poll Frantic until inline checks pass and `public_url_live` waits for its delayed run.
 - Continue polling after `2026-07-08T05:16:19.711Z`.
 - Append the real post-window recheck result and final receipt only after Frantic emits them.
