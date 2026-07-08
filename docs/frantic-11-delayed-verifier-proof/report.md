@@ -10,7 +10,7 @@ The important constraint was awkward but real: the claim fuse was two hours, whi
 - Claim receipt code: `r/dc9ce97c`.
 - Source delivery ref: `frantic:delivery:35e2fa45-3d4a-4c03-833c-9cbd95407e78`.
 - Revision delivery ref: `frantic:delivery:6a217dc1-3d2e-4861-9ac7-bc9c8cc1d0fc`.
-- Public artifact: `https://raw.githubusercontent.com/iwannabefree00/runx/frantic-11-delayed-verifier-proof/docs/frantic-11-delayed-verifier-proof/artifact.md`.
+- Public artifact: `https://github.com/iwannabefree00/runx/blob/frantic-11-delayed-verifier-proof/docs/frantic-11-delayed-verifier-proof/artifact.md`.
 - Evidence JSON: `https://raw.githubusercontent.com/iwannabefree00/runx/frantic-11-delayed-verifier-proof/docs/frantic-11-delayed-verifier-proof/evidence.json`.
 - This report: `https://raw.githubusercontent.com/iwannabefree00/runx/frantic-11-delayed-verifier-proof/docs/frantic-11-delayed-verifier-proof/report.md`.
 - Contract used: `published_artifact_v1` with `check_schedules.public_url_live.schedule.run=delayed`.
@@ -31,7 +31,7 @@ The important constraint was awkward but real: the claim fuse was two hours, whi
 - No timestamp in this packet is computed at page load.
 - The delayed check result is copied from Frantic status: `public_url_live`, `passed`, `HTTP 200`, updated at `2026-07-08T05:17:16.313Z`.
 - The final refs are copied from Frantic: revision delivery receipt `frantic:delivery:6a217dc1-3d2e-4861-9ac7-bc9c8cc1d0fc` and verifier run `verifier-run:cf4934f1-d4a7-4b9d-a630-0e02db333b8d:3855`.
-- The public artifact is a stable raw GitHub file that should remain HTTP 200 before and after the delayed window.
+- The public artifact is a stable GitHub repository file page that should remain HTTP 200 before and after the delayed window.
 
 ## Current Frantic verifier schedule
 
@@ -56,7 +56,7 @@ Captured from the current claim response:
 
 ## Acceptance mapping
 
-- Live public artifact: the `public_url` artifact is a raw GitHub file.
+- Live public artifact: the `public_url` artifact is a public GitHub repository file page.
 - Contract used: evidence JSON includes `check_schedules.public_url_live.schedule.run=delayed`.
 - Blocks acceptance: evidence JSON includes `check_schedules.public_url_live.blocks_acceptance=true`.
 - Immediate-pass record: populated in evidence JSON from Frantic status with check IDs, statuses, summaries, and timestamps.
