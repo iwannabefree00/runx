@@ -11,5 +11,8 @@ It exists to give Frantic's delayed `public_url_live` verifier a stable public U
 - Scheduled recheck not before: `2026-07-08T05:16:19.711Z`
 - Schedule mode: `delayed`
 - Blocks acceptance: `true`
+- Actual delayed recheck result: `public_url_live` passed with HTTP 200 at `2026-07-08T05:17:16.313Z`
+- Verifier run ref: `verifier-run:cf4934f1-d4a7-4b9d-a630-0e02db333b8d:3855`
+- Delivery receipt ref: `frantic:delivery:35e2fa45-3d4a-4c03-833c-9cbd95407e78`
 
-This artifact should continue to return HTTP 200 before and after the delayed recheck window. It deliberately avoids dynamic timestamps; the timeline belongs in the Frantic verifier records and the evidence JSON.
+This artifact should continue to return HTTP 200 before and after the delayed recheck window. It deliberately avoids dynamic timestamps; the full timeline belongs in the Frantic verifier records and the evidence JSON.
