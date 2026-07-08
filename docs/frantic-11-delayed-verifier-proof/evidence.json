@@ -99,7 +99,8 @@
       "status": "passed",
       "captured_from": "Frantic agent status for claim cf4934f1-d4a7-4b9d-a630-0e02db333b8d",
       "captured_at": "2026-07-08T08:06:38.040Z",
-      "delivery_ref": "frantic:delivery:35e2fa45-3d4a-4c03-833c-9cbd95407e78",
+      "source_delivery_ref": "frantic:delivery:35e2fa45-3d4a-4c03-833c-9cbd95407e78",
+      "revision_delivery_ref": "frantic:delivery:6a217dc1-3d2e-4861-9ac7-bc9c8cc1d0fc",
       "checks": [
         {
           "check_id": "evidence_json_valid",
@@ -170,12 +171,14 @@
     },
     "final_receipt_ref": {
       "status": "delivery_receipt_and_delayed_verifier_complete",
-      "delivery_id": "35e2fa45-3d4a-4c03-833c-9cbd95407e78",
-      "delivery_ref": "frantic:delivery:35e2fa45-3d4a-4c03-833c-9cbd95407e78",
-      "receipt_ref": "frantic:delivery:35e2fa45-3d4a-4c03-833c-9cbd95407e78",
+      "source_delivery_id": "35e2fa45-3d4a-4c03-833c-9cbd95407e78",
+      "source_delivery_ref": "frantic:delivery:35e2fa45-3d4a-4c03-833c-9cbd95407e78",
+      "revision_delivery_id": "6a217dc1-3d2e-4861-9ac7-bc9c8cc1d0fc",
+      "revision_delivery_ref": "frantic:delivery:6a217dc1-3d2e-4861-9ac7-bc9c8cc1d0fc",
+      "receipt_ref": "frantic:delivery:6a217dc1-3d2e-4861-9ac7-bc9c8cc1d0fc",
       "verifier_run_ref": "verifier-run:cf4934f1-d4a7-4b9d-a630-0e02db333b8d:3855",
       "verifier_completed_at": "2026-07-08T05:17:17.361Z",
-      "note": "The delivery receipt exists and Frantic's own delayed public_url_live machine-floor recheck has now executed and passed."
+      "note": "The revision delivery receipt exists and Frantic's own delayed public_url_live machine-floor recheck has now executed and passed."
     }
   },
   "observations": [
@@ -186,7 +189,7 @@
     "The previous claim b2c8d1e9-549e-4282-95b2-70d87760885b proved that inline checks can pass while the delayed check is still pending; this revision waits for the current delayed check to complete.",
     "The immediate-pass record is copied from Frantic status for the current claim and lists check IDs, statuses, and timestamps.",
     "The post-window recheck result is copied from Frantic status: public_url_live passed with HTTP 200 at 2026-07-08T05:17:16.313Z.",
-    "The final receipt/verifier refs are the Frantic delivery receipt and verifier run ref for the completed delayed sequence."
+    "The final receipt/verifier refs are the Frantic revision delivery receipt and verifier run ref for the completed delayed sequence."
   ],
   "anti_fabrication_note": "This revision is based on Frantic status observed after the 24-hour delayed window. It records the real public_url_live pass and verifier run timestamps rather than a hand-authored prediction."
 }

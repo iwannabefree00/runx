@@ -8,7 +8,8 @@ The important constraint was awkward but real: the claim fuse was two hours, whi
 - Claim id: `cf4934f1-d4a7-4b9d-a630-0e02db333b8d`.
 - Claim ref: `frantic:claim:cf4934f1-d4a7-4b9d-a630-0e02db333b8d`.
 - Claim receipt code: `r/dc9ce97c`.
-- Delivery ref: `frantic:delivery:35e2fa45-3d4a-4c03-833c-9cbd95407e78`.
+- Source delivery ref: `frantic:delivery:35e2fa45-3d4a-4c03-833c-9cbd95407e78`.
+- Revision delivery ref: `frantic:delivery:6a217dc1-3d2e-4861-9ac7-bc9c8cc1d0fc`.
 - Public artifact: `https://raw.githubusercontent.com/iwannabefree00/runx/frantic-11-delayed-verifier-proof/docs/frantic-11-delayed-verifier-proof/artifact.md`.
 - Evidence JSON: `https://raw.githubusercontent.com/iwannabefree00/runx/frantic-11-delayed-verifier-proof/docs/frantic-11-delayed-verifier-proof/evidence.json`.
 - This report: `https://raw.githubusercontent.com/iwannabefree00/runx/frantic-11-delayed-verifier-proof/docs/frantic-11-delayed-verifier-proof/report.md`.
@@ -29,7 +30,7 @@ The important constraint was awkward but real: the claim fuse was two hours, whi
 - The current evidence no longer contains placeholder statuses for the immediate-pass record or post-window recheck result.
 - No timestamp in this packet is computed at page load.
 - The delayed check result is copied from Frantic status: `public_url_live`, `passed`, `HTTP 200`, updated at `2026-07-08T05:17:16.313Z`.
-- The final refs are copied from Frantic status: delivery receipt `frantic:delivery:35e2fa45-3d4a-4c03-833c-9cbd95407e78` and verifier run `verifier-run:cf4934f1-d4a7-4b9d-a630-0e02db333b8d:3855`.
+- The final refs are copied from Frantic: revision delivery receipt `frantic:delivery:6a217dc1-3d2e-4861-9ac7-bc9c8cc1d0fc` and verifier run `verifier-run:cf4934f1-d4a7-4b9d-a630-0e02db333b8d:3855`.
 - The public artifact is a stable raw GitHub file that should remain HTTP 200 before and after the delayed window.
 
 ## Current Frantic verifier schedule
@@ -61,7 +62,8 @@ Captured from the current claim response:
 - Immediate-pass record: populated in evidence JSON from Frantic status with check IDs, statuses, summaries, and timestamps.
 - Scheduled waiting state: evidence JSON records the current claim schedule and not-before timestamp.
 - Post-window recheck result: populated in evidence JSON from Frantic status after the window.
-- Delivery receipt ref: `frantic:delivery:35e2fa45-3d4a-4c03-833c-9cbd95407e78`.
+- Source delivery receipt ref: `frantic:delivery:35e2fa45-3d4a-4c03-833c-9cbd95407e78`.
+- Revision delivery receipt ref: `frantic:delivery:6a217dc1-3d2e-4861-9ac7-bc9c8cc1d0fc`.
 - Final delayed-check result: `public_url_live` passed with HTTP 200 at `2026-07-08T05:17:16.313Z`.
 - Final verifier ref: `verifier-run:cf4934f1-d4a7-4b9d-a630-0e02db333b8d:3855`.
 
@@ -72,7 +74,8 @@ Please treat this as the post-window revision packet. The earlier packet intenti
 ## Follow-up plan
 
 - Delivered this branch URL before the two-hour claim fuse.
-- Captured the real Frantic delivery receipt: `frantic:delivery:35e2fa45-3d4a-4c03-833c-9cbd95407e78`.
+- Captured the original Frantic delivery receipt: `frantic:delivery:35e2fa45-3d4a-4c03-833c-9cbd95407e78`.
+- Captured the revision Frantic delivery receipt: `frantic:delivery:6a217dc1-3d2e-4861-9ac7-bc9c8cc1d0fc`.
 - Captured the real Frantic inline pass records from status.
 - Waited until after `2026-07-08T05:16:19.711Z`.
 - Captured the real delayed `public_url_live` pass from status.
